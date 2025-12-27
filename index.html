@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html
+  class="dark"
+  lang="en"
+>
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      content="width=device-width, initial-scale=1.0"
+      name="viewport"
+    />
+    <title>Portfolio Homepage - Game Designer</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <!-- GSAP for animations -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <!-- Theme Configuration -->
+    <script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              primary: "#0da6f2",
+              "background-dark": "#0b1015",
+              "surface-dark": "#16202a",
+            },
+            fontFamily: {
+              display: ["Space Grotesk", "sans-serif"],
+            },
+            backgroundImage: {
+              "cyber-grid":
+                "linear-gradient(rgba(13, 166, 242, 0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(13, 166, 242, 0.05) 1px, transparent 1px)",
+            },
+          },
+        },
+      };
+    </script>
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Material Symbols -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="style.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body
+    class="bg-background-dark font-display text-white overflow-x-hidden min-h-screen flex flex-col"
+  >
+    <!-- Cinematic Background Layers -->
+    <div
+      class="hero-bg-layers"
+      aria-hidden="true"
+    >
+      <div class="hero-bg__gradient"></div>
+      <div class="hero-bg__mesh"></div>
+      <div class="hero-bg__mesh hero-bg__mesh--two"></div>
+      <div class="hero-bg__beam"></div>
+      <div class="hero-bg__orb hero-bg__orb--one"></div>
+      <div class="hero-bg__orb hero-bg__orb--two"></div>
+    </div>
+
+    <!-- Background Grid Effect -->
+    <div
+      class="fixed inset-0 z-0 bg-cyber-grid bg-[length:40px_40px] opacity-[0.07] pointer-events-none"
+    ></div>
+
+    <!-- Floating Navbar -->
+    <div class="sticky top-6 left-0 right-0 z-50 flex justify-center px-4">
+      <nav
+        class="glass-panel rounded-full px-2 py-2 flex items-center justify-between gap-4 sm:gap-8 max-w-[600px] w-full shadow-2xl shadow-primary/10"
+      >
+        <a
+          class="pl-4 flex items-center gap-2 text-white font-bold tracking-tight hover:text-primary transition-colors"
+          href="#"
+        >
+          <span class="material-symbols-outlined text-[20px] text-primary"
+            >stadia_controller</span
+          >
+          <span>PRATIK.DESIGN</span>
+        </a>
+        <div class="hidden sm:flex items-center gap-1">
+          <a
+            class="px-4 py-2 text-sm font-medium text-slate-300 hover:text-white hover:bg-white/5 rounded-full transition-all"
+            href="#work"
+            >Missions</a
+          >
+          <a
+            class="px-4 py-2 text-sm font-medium text-slate-300 hover:text-white hover:bg-white/5 rounded-full transition-all"
+            href="#about"
+            >Stats</a
+          >
+          <a
+            class="px-4 py-2 text-sm font-medium text-slate-300 hover:text-white hover:bg-white/5 rounded-full transition-all"
+            href="#contact"
+            >Comms</a
+          >
+        </div>
+        <a
+          class="bg-primary hover:bg-primary/90 text-white text-xs sm:text-sm font-bold px-5 py-2.5 rounded-full transition-all shadow-[0_0_15px_rgba(13,166,242,0.4)] hover:shadow-[0_0_20px_rgba(13,166,242,0.6)] flex items-center gap-2"
+          href="#"
+        >
+          <span>START</span>
+          <span class="material-symbols-outlined text-[16px]">play_arrow</span>
+        </a>
+      </nav>
+    </div>
+
+    <!-- Hero Section -->
+    <section
+      class="relative min-h-screen flex flex-col justify-center overflow-hidden -mt-16 sm:-mt-14"
+      id="start"
+    >
+      <div
+        class="relative z-10 w-full max-w-6xl mx-auto grid gap-10 lg:grid-cols-[1.15fr,0.85fr] px-4"
+      >
+        <div
+          class="hero-copy text-center lg:text-left flex flex-col items-center lg:items-start gap-6"
+        >
+          <div
+            class="hero-badge inline-flex items-center gap-2 px-3 py-1 rounded-full border border-primary/30 bg-primary/10 text-primary text-xs font-bold tracking-widest uppercase mb-2 gsap-hidden"
+          >
+            <span class="w-2 h-2 rounded-full bg-green-500 animate-ping"></span>
+            System Online
+          </div>
+
+          <h1
+            class="hero-title text-5xl md:text-7xl lg:text-8xl font-black tracking-tighter text-white mb-2 relative group cursor-default select-none gsap-hidden"
+            style="font-family: 'Space Grotesk', sans-serif"
+          >
+            <span
+              class="text-glitch block"
+              data-text="PRATIK PATIL"
+              >PRATIK PATIL</span
+            >
+            <span
+              class="text-transparent bg-clip-text bg-gradient-to-r from-gray-200 to-gray-600 text-3xl md:text-5xl lg:text-6xl block mt-2 font-bold tracking-[-0.05em] typewriter"
+              data-typewriter
+              data-typewriter-text="GAME DESIGNER"
+              aria-live="polite"
+            >
+              <span
+                class="typewriter__text"
+                data-typewriter-output
+              >
+                GAME DESIGNER
+              </span>
+              <span
+                class="typewriter__caret"
+                aria-hidden="true"
+              ></span>
+            </span>
+          </h1>
+
+          <p
+            class="hero-desc text-slate-400 text-lg md:text-xl max-w-xl leading-relaxed gsap-hidden"
+          >
+            Crafting tactile combat encounters, AI companions, and cinematic
+            gameplay loops for teams that want prototypes to feel like shippable
+            stories.
+          </p>
+
+          <div
+            class="hero-buttons flex flex-col sm:flex-row gap-4 mt-4 w-full sm:w-auto gsap-hidden"
+          >
+            <button
+              class="explore-btn relative group overflow-hidden bg-primary text-white font-bold py-4 px-8 rounded-lg transition-all hover:scale-105 active:scale-95 shadow-[0_0_20px_rgba(13,166,242,0.35)]"
+            >
+              <span class="relative z-10 flex items-center gap-2">
+                EXPLORE WORLDS
+                <span class="material-symbols-outlined">arrow_downward</span>
+              </span>
+              <div
+                class="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300"
+              ></div>
+            </button>
+            <button
+              class="glass-panel text-white font-bold py-4 px-8 rounded-lg transition-all hover:bg-white/10 hover:border-primary/50 flex items-center gap-2"
+            >
+              <span class="material-symbols-outlined">download</span> VIEW
+              RESUME
+            </button>
+          </div>
+        </div>
+
+        <div class="hidden lg:block">
+          <img
+            src="./assets/hero-3.png"
+            alt="Hero Image"
+            class="w-full"
+          />
+        </div>
+      </div>
+
+      <!-- Scroll Indicator -->
+      <div
+        class="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-50"
+      >
+        <span class="text-[10px] tracking-[0.2em] uppercase"
+          >Scroll to Start</span
+        >
+        <div
+          class="w-[1px] h-12 bg-gradient-to-b from-primary to-transparent"
+        ></div>
+      </div>
+    </section>
+
+    <!-- Main Content Container -->
+    <main
+      class="flex-grow w-full max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 pb-20 relative z-10"
+    >
+      <!-- About / Stats Section -->
+      <section
+        class="py-20 relative"
+        id="about"
+      >
+        <div
+          class="absolute right-0 top-1/4 w-96 h-96 bg-primary/10 rounded-full blur-[128px] pointer-events-none"
+        ></div>
+
+        <div
+          class="section-header flex items-end justify-between mb-12 border-b border-white/10 pb-4 gsap-hidden"
+        >
+          <div>
+            <h2
+              class="text-3xl md:text-4xl font-bold text-white flex items-center gap-3"
+            >
+              <span class="material-symbols-outlined text-primary text-4xl"
+                >person_search</span
+              >
+              Player Stats
+            </h2>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+          <!-- Avatar/Bio Card -->
+          <div
+            class="stats-card lg:col-span-6 glass-panel rounded-2xl p-8 border border-white/10 relative overflow-hidden gsap-hidden"
+          >
+            <div class="absolute top-0 right-0 p-4 opacity-20">
+              <span class="material-symbols-outlined text-[120px]"
+                >fingerprint</span
+              >
+            </div>
+            <div class="relative z-10">
+              <div
+                class="w-24 h-24 rounded-full border-2 border-primary p-1 mb-6"
+              >
+                <img
+                  alt="Profile picture"
+                  class="w-full h-full object-cover rounded-full grayscale hover:grayscale-0 transition-all duration-500"
+                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuDthPEwSpqkp-KG0UYu5puK4hLMysiwz-zRlJyvIhVjoJAjyTR8G_BFgyI8jKQ6Gd0aHlVvsZtfGyFlcLr5sIPy4s2eF8rTmpRrqqxKvGWpwlqoPAeaOd2bcCRA1eEEqeIfmcm4yTw_3NBXv65w0RdAyPYSvuybDALLILLcZZEpovks9lNhqFo8S8R4UU-ONJ8VCTa-e_H1rgEk4_BP94bzkBFprBGbBlPIEpybwDa1AMFFBsNq5TuQITjAg7c06oipODdwkKzEu-0T"
+                />
+              </div>
+              <h3 class="text-2xl font-bold text-white mb-1">Pratik Patil</h3>
+              <p class="text-primary font-mono text-sm mb-6">
+                LVL 28 • Game Designer
+              </p>
+              <p class="text-slate-400 mb-6 leading-relaxed">
+                I create compelling game mechanics and player experiences that
+                keep gamers engaged. With over 5 years of experience in both
+                indie and AAA game development, I design systems that feel
+                intuitive yet challenging.
+              </p>
+              <div class="flex gap-4">
+                <a
+                  class="text-white hover:text-primary transition-colors"
+                  href="#"
+                  ><span class="material-symbols-outlined">mail</span></a
+                >
+                <a
+                  class="text-white hover:text-primary transition-colors"
+                  href="#"
+                  ><span class="material-symbols-outlined">terminal</span></a
+                >
+                <a
+                  class="text-white hover:text-primary transition-colors"
+                  href="#"
+                  ><span class="material-symbols-outlined">language</span></a
+                >
+              </div>
+            </div>
+          </div>
+
+          <!-- Skills/Tools Grid -->
+          <div class="lg:col-span-6 grid grid-cols-1 sm:grid-cols-1 gap-4">
+            <!-- Achievements Box -->
+            <div
+              class="stats-card glass-panel p-6 rounded-xl border border-white/5 flex flex-col gsap-hidden"
+            >
+              <h4 class="text-white font-bold mb-4 flex items-center gap-2">
+                <span class="material-symbols-outlined text-primary"
+                  >trophy</span
+                >
+                Achievements
+              </h4>
+              <ul class="space-y-2">
+                <li class="flex items-start gap-3 text-sm text-slate-300">
+                  <span
+                    class="material-symbols-outlined text-yellow-500 text-lg mt-0.5"
+                    >star</span
+                  >
+                  <div>
+                    <span class="block font-bold text-white"
+                      >Awwwards SOTD</span
+                    >
+                    <span class="text-xs text-slate-500"
+                      >Dec 2023 - Cyber Dashboard</span
+                    >
+                  </div>
+                </li>
+                <li class="flex items-start gap-3 text-sm text-slate-300">
+                  <span
+                    class="material-symbols-outlined text-yellow-500 text-lg mt-0.5"
+                    >star</span
+                  >
+                  <div>
+                    <span class="block font-bold text-white"
+                      >Best UI - IndieJam</span
+                    >
+                    <span class="text-xs text-slate-500"
+                      >Aug 2022 - Project Void</span
+                    >
+                  </div>
+                </li>
+              </ul>
+            </div>
+
+            <!-- Tools Marquee -->
+            <div
+              class="stats-card col-span-1 sm:col-span-2 glass-panel p-4 rounded-xl border border-white/5 flex flex-col items-center overflow-hidden gsap-hidden"
+            >
+              <div class="text-white font-bold flex items-center gap-2">
+                <span class="material-symbols-outlined text-primary">
+                  build
+                </span>
+                Tools
+              </div>
+              <div
+                class="tools-marquee w-full h-full flex items-center"
+                aria-live="off"
+              >
+                <div
+                  class="tools-marquee__track text-slate-400 text-sm font-mono whitespace-nowrap"
+                  data-tools-track
+                ></div>
+              </div>
+              <noscript>
+                <p class="text-slate-500 text-xs mt-4">
+                  Enable JavaScript to view animated tool badges.
+                </p>
+              </noscript>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Selected Works Section -->
+      <section
+        class="py-20"
+        id="work"
+      >
+        <div
+          class="section-header flex items-end justify-between mb-12 border-b border-white/10 pb-4 gsap-hidden"
+        >
+          <div>
+            <h2
+              class="text-3xl md:text-4xl font-bold text-white flex items-center gap-3"
+            >
+              <span class="material-symbols-outlined text-primary text-4xl"
+                >view_cozy</span
+              >
+              Selected Missions
+            </h2>
+          </div>
+          <div class="hidden md:block text-slate-500 font-mono text-sm">
+            // INDEX: 001 - 004
+          </div>
+        </div>
+
+        <div
+          class="grid grid-cols-1 md:grid-cols-2 gap-8"
+          id="projects-grid"
+        ></div>
+        <noscript>
+          <p class="text-center text-slate-500 text-sm mt-4">
+            Enable JavaScript to view interactive project previews.
+          </p>
+        </noscript>
+      </section>
+
+      <!-- CTA / Contact -->
+      <section
+        class="py-20"
+        id="contact"
+      >
+        <div
+          class="glass-panel rounded-3xl p-10 md:p-16 text-center border border-primary/20 relative overflow-hidden"
+        >
+          <div
+            class="absolute inset-0 bg-gradient-to-b from-primary/5 to-transparent pointer-events-none"
+          ></div>
+          <h2
+            class="text-3xl md:text-5xl font-black text-white mb-6 uppercase tracking-tight relative z-10"
+          >
+            Ready to Start a New Game?
+          </h2>
+          <p
+            class="text-slate-400 max-w-xl mx-auto mb-10 text-lg relative z-10"
+          >
+            Currently available for freelance missions and full-time quests.
+            Let's build something legendary together.
+          </p>
+          <div
+            class="flex flex-col sm:flex-row justify-center items-center gap-6 relative z-10"
+          >
+            <button
+              class="bg-primary text-white font-bold py-4 px-10 rounded-lg shadow-[0_0_25px_rgba(13,166,242,0.4)] hover:shadow-[0_0_40px_rgba(13,166,242,0.6)] hover:scale-105 transition-all text-lg flex items-center gap-2"
+            >
+              <span class="material-symbols-outlined">mail</span>
+              INITIALIZE CONTACT
+            </button>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-white/10 bg-[#05080a] py-12 relative z-10">
+      <div
+        class="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-6"
+      >
+        <div class="flex flex-col gap-2">
+          <span class="text-white font-bold tracking-widest text-lg"
+            >PRATIK.DESIGN</span
+          >
+          <span class="text-xs text-slate-500 font-mono"
+            >© 2026 SYSTEM ALL RIGHTS RESERVED.</span
+          >
+        </div>
+        <div class="flex gap-6">
+          <a
+            class="text-slate-400 hover:text-primary transition-colors text-sm font-medium"
+            href="#"
+            >Twitter</a
+          >
+          <a
+            class="text-slate-400 hover:text-primary transition-colors text-sm font-medium"
+            href="#"
+            >LinkedIn</a
+          >
+          <a
+            class="text-slate-400 hover:text-primary transition-colors text-sm font-medium"
+            href="#"
+            >Dribbble</a
+          >
+          <a
+            class="text-slate-400 hover:text-primary transition-colors text-sm font-medium"
+            href="#"
+            >GitHub</a
+          >
+        </div>
+        <div
+          class="flex items-center gap-2 px-3 py-1.5 rounded bg-green-500/10 border border-green-500/20"
+        >
+          <div class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
+          <span class="text-xs font-bold text-green-500 uppercase"
+            >Open for Work</span
+          >
+        </div>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
