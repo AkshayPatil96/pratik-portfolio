@@ -36,12 +36,8 @@ if (typewriterEl) {
 // Selected missions data source
 const projectsData = [
   {
-    title: "Project: NEON_DRIFT",
-    ariaLabel: "Open Project NEON_DRIFT",
-    description:
-      "A high-octane racing game HUD redesign focusing on readability at 200mph. Implemented using Unity UI Toolkit.",
-    tags: ["Figma", "Unity", "After Effects"],
-    category: "UI / MOTION",
+    title: "Ancient Temple",
+    ariaLabel: "Ancient Temple",
     image: "/assets/images/project-1.png",
     video:
       "/assets/videos/project-1.mp4",
@@ -49,24 +45,16 @@ const projectsData = [
       "https://youtu.be/n1VVPK23PWw?si=xHu1tHKtSbB1ePGM",
   },
   {
-    title: "Project: AETHER_RPG",
-    ariaLabel: "Open Project AETHER_RPG",
-    description:
-      "Complex inventory management system for an open-world RPG. Focused on drag-and-drop interactions and controller support.",
-    tags: ["UX Research", "Unreal Engine 5"],
-    category: "UX / SYSTEM",
+    title: "Medieval Village- Ashes of Fallen game Environment",
+    ariaLabel: "Medieval Village- Ashes of Fallen game Environment",
     image: "/assets/images/project-2.png",
     video:
       "/assets/videos/project-2.mp4",
     link: "https://youtu.be/CHX4JLrajCU?si=UvrWpB0q_RFC5JTO",
   },
   {
-    title: "Project: FRAG_STATS",
-    ariaLabel: "Open Project FRAG_STATS",
-    description:
-      "Esports analytics dashboard for team managers. Visualizing complex kill/death ratios and heatmaps in real-time.",
-    tags: ["React", "D3.js", "Tailwind"],
-    category: "WEB / DATA",
+    title: "Christmas SnowFall - A Snowy Environment",
+    ariaLabel: "Christmas SnowFall - A Snowy Environment",
     image: "/assets/images/project-3.png",
     video:
       "/assets/videos/project-3.mp4",
@@ -75,30 +63,10 @@ const projectsData = [
 ];
 
 const toolsData = [
-  {
-    name: "Blender",
-    icon: "https://dummyimage.com/64x64/0da6f2/0b1015&text=B",
-  },
-  {
-    name: "Unity",
-    icon: "https://dummyimage.com/64x64/0da6f2/0b1015&text=U",
-  },
-  {
-    name: "Unreal",
-    icon: "https://dummyimage.com/64x64/0da6f2/0b1015&text=UE",
-  },
-  {
-    name: "C#",
-    icon: "https://dummyimage.com/64x64/0da6f2/0b1015&text=C%23",
-  },
-  {
-    name: "Jira",
-    icon: "https://dummyimage.com/64x64/0da6f2/0b1015&text=J",
-  },
-  {
-    name: "Git",
-    icon: "https://dummyimage.com/64x64/0da6f2/0b1015&text=G",
-  },
+  { name: "Unreal Engine 5" },
+  { name: "Maya-Substance" },
+  { name: "Painter-Megascan" },
+  { name: "Premiere Pro" }
 ];
 
 const escapeAttr = (value = "") =>
@@ -178,44 +146,28 @@ const loadYouTubeAPI = (() => {
 const createToolItemMarkup = (tool = {}) => {
   const {
     name = "Tool",
-    icon = "https://dummyimage.com/64x64/0da6f2/0b1015&text=?",
   } = tool;
   const safeName = escapeAttr(name);
 
   return `
-    <span class="tools-marquee__item">
-      <span class="tools-marquee__icon" aria-hidden="true">
-        <img src="${escapeAttr(
-    icon,
-  )}" alt="" loading="lazy" decoding="async" />
-      </span>
-      <span>${safeName}</span>
-    </span>
+    <li class="before:content-['▹'] before:text-yellow-500 before:text-xl flex items-center gap-1">
+      ${safeName}
+    </li>
   `;
 };
 
 const createProjectCardMarkup = (project = {}) => {
   const {
     title = "Untitled Project",
-    titleClasses =
-    "text-2xl font-bold text-white mb-2 group-hover:text-primary transition-colors",
-    description = "",
-    descriptionClasses = "text-slate-400 text-sm mb-4 line-clamp-2",
-    tags = [],
-    category = "",
+    titleClasses = "text-lg font-semibold text-white",
     image = "",
     imageAlt = title,
-    imageFilters = "group-hover:grayscale-0",
     videoPoster = image,
     poster: customPoster = "",
     video = "",
     link = "#",
     ariaLabel: aria = title,
     cardClasses = "",
-    bodyClasses = "",
-    icon = "",
-    iconClasses =
-    "material-symbols-outlined text-4xl text-white/40 mb-2 block group-hover:text-primary",
   } = project;
   const youtubeId = extractYouTubeId(video);
   const mediaType = youtubeId ? "youtube" : "html5";
@@ -231,34 +183,16 @@ const createProjectCardMarkup = (project = {}) => {
   const imageMarkup = posterSource
     ? `<img
         alt="${escapeAttr(imageAlt)}"
-        class="project-card__image w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 ${imageFilters}"
+        class="project-card__image w-full h-full object-cover"
         src="${escapeAttr(posterSource)}"
         loading="lazy"
         decoding="async"
       />`
     : "";
 
-  const badgeMarkup = category
-    ? `<div class="absolute top-4 right-4 z-20 bg-black/50 backdrop-blur-md px-3 py-1 rounded text-xs font-mono text-primary border border-primary/30">${category}</div>`
-    : "";
-
-  const iconMarkup = icon
-    ? `<span class="${iconClasses}">${icon}</span>`
-    : "";
-
-  const tagsMarkup =
-    tags.length > 0
-      ? `<div class="flex flex-wrap gap-2">${tags
-        .map(
-          (tag) =>
-            `<span class="px-2 py-1 rounded bg-white/5 border border-white/10 text-[10px] text-slate-300 uppercase tracking-wider">${tag}</span>`,
-        )
-        .join("")}</div>`
-      : "";
-
   return `
     <article
-      class="project-card group relative rounded-xl overflow-hidden glass-panel hover:border-primary/50 transition-all duration-300 hover:-translate-y-2 neon-glow gsap-hidden ${cardClasses}"
+      class="project-card group relative bg-transparent rounded-2xl gsap-hidden ${cardClasses}"
       data-project-link="${escapeAttr(normalizedLink)}"
       data-project-media="${mediaType}"
       data-project-video="${escapeAttr(mediaType === "youtube" ? "" : video)}"
@@ -267,14 +201,13 @@ const createProjectCardMarkup = (project = {}) => {
       tabindex="0"
       aria-label="${escapeAttr(aria)}"
     >
-      <div class="relative aspect-video overflow-hidden">
-        <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent z-10"></div>
+      <div class="project-card__frame neon-glow relative aspect-video overflow-hidden">
         ${mediaType === "youtube"
-      ? `<div class="project-card__youtube absolute inset-0" data-project-youtube-frame data-video-id="${escapeAttr(
+      ? `<div class="project-card__youtube" data-project-youtube-frame data-video-id="${escapeAttr(
         youtubeId,
       )}"></div>`
       : `<video
-          class="project-card__video absolute inset-0 w-full h-full object-cover transition-opacity duration-700"
+          class="project-card__video"
           data-project-video-element
           muted
           loop
@@ -285,13 +218,9 @@ const createProjectCardMarkup = (project = {}) => {
         ></video>`
     }
         ${imageMarkup}
-        ${badgeMarkup}
-      </div>
-      <div class="p-6 relative z-20 ${bodyClasses}">
-        ${iconMarkup}
-        <h3 class="${titleClasses}">${title}</h3>
-        <p class="${descriptionClasses}">${description}</p>
-        ${tagsMarkup}
+        <div class="project-card__title-panel">
+          <h3 class="project-card__title ${titleClasses}">${title}</h3>
+        </div>
       </div>
     </article>
   `;
@@ -307,7 +236,7 @@ const renderToolsMarquee = () => {
     .map((tool) => createToolItemMarkup(tool))
     .join("");
 
-  marqueeTrack.innerHTML = itemsMarkup + itemsMarkup;
+  marqueeTrack.innerHTML = itemsMarkup;
 };
 
 const projectsGrid = document.getElementById("projects-grid");
@@ -328,6 +257,11 @@ const setupProjectMediaCards = () => {
   if (!interactiveProjectCards.length) {
     return;
   }
+
+  const canTiltCards =
+    typeof window.matchMedia === "function" &&
+    window.matchMedia("(pointer: fine)").matches &&
+    !window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
   const videoLoaders = new WeakMap();
   const youTubePlayers = new WeakMap();
@@ -354,6 +288,59 @@ const setupProjectMediaCards = () => {
     const mediaType = card.getAttribute("data-project-media") || "html5";
     const videoId = card.getAttribute("data-project-youtube-id");
     const youtubeFrameEl = card.querySelector("[data-project-youtube-frame]");
+    const tiltTarget = card.querySelector(".project-card__frame");
+
+    if (!tiltTarget) {
+      return;
+    }
+
+    let tiltFrameId = null;
+
+    const resetTilt = () => {
+      if (tiltFrameId) {
+        cancelAnimationFrame(tiltFrameId);
+        tiltFrameId = null;
+      }
+      tiltTarget.style.setProperty("--tilt-x", "0deg");
+      tiltTarget.style.setProperty("--tilt-y", "0deg");
+    };
+
+    const handleTiltMove = (event) => {
+      if (!canTiltCards) {
+        return;
+      }
+
+      const clientX =
+        event.clientX ?? event.touches?.[0]?.clientX ?? event.changedTouches?.[0]?.clientX;
+      const clientY =
+        event.clientY ?? event.touches?.[0]?.clientY ?? event.changedTouches?.[0]?.clientY;
+
+      if (typeof clientX !== "number" || typeof clientY !== "number") {
+        return;
+      }
+
+      if (tiltFrameId) {
+        cancelAnimationFrame(tiltFrameId);
+      }
+
+      tiltFrameId = requestAnimationFrame(() => {
+        const rect = tiltTarget.getBoundingClientRect();
+        if (!rect.width || !rect.height) {
+          return;
+        }
+
+        const percentX = (clientX - rect.left) / rect.width;
+        const percentY = (clientY - rect.top) / rect.height;
+        const clampedX = Math.min(Math.max(percentX, 0), 1);
+        const clampedY = Math.min(Math.max(percentY, 0), 1);
+        const maxTilt = 14;
+        const tiltX = (0.5 - clampedY) * (maxTilt * 2);
+        const tiltY = (clampedX - 0.5) * (maxTilt * 2);
+
+        tiltTarget.style.setProperty("--tilt-x", `${tiltX.toFixed(2)}deg`);
+        tiltTarget.style.setProperty("--tilt-y", `${tiltY.toFixed(2)}deg`);
+      });
+    };
 
     const ensureYouTubePlayer = () => {
       if (mediaType !== "youtube" || !videoId || !youtubeFrameEl) {
@@ -454,12 +441,17 @@ const setupProjectMediaCards = () => {
         videoEl.pause();
         videoEl.currentTime = 0;
       }
+      resetTilt();
     };
 
     card.addEventListener("mouseenter", handleEnter);
     card.addEventListener("mouseleave", handleLeave);
     card.addEventListener("focusin", handleEnter);
     card.addEventListener("focusout", handleLeave);
+
+    if (canTiltCards) {
+      card.addEventListener("mousemove", handleTiltMove);
+    }
 
     card.addEventListener("click", () => {
       if (projectLink && projectLink !== "#") {
