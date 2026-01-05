@@ -58,7 +58,7 @@ const projectsData = [
     image: "/assets/images/project-3.png",
     video:
       "/assets/videos/project-3.mp4",
-    link: "https://www.youtube.com/watch?v=aqz-KE-bpKQ",
+    link: "https://youtu.be/ckP_g9qeVlc?si=DpVL-rTDK5jVI1sW",
   },
 ];
 
@@ -66,7 +66,9 @@ const toolsData = [
   { name: "Unreal Engine 5" },
   { name: "Maya-Substance" },
   { name: "Painter-Megascan" },
-  { name: "Premiere Pro" }
+  { name: "Premiere Pro" }, 
+  { name: "Blender" },
+  { name: "Adobe Photoshop" },
 ];
 
 const escapeAttr = (value = "") =>
