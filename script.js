@@ -64,11 +64,13 @@ const projectsData = [
 
 const toolsData = [
   { name: "Unreal Engine 5" },
-  { name: "Maya-Substance" },
-  { name: "Painter-Megascan" },
+  { name: "AutodeskMaya" },
+  { name: "Adobe Substance Painter" },
   { name: "Premiere Pro" }, 
   { name: "Blender" },
   { name: "Adobe Photoshop" },
+  { name: "Adobe Illustrator" },
+  { name: "Speed Tree" },
 ];
 
 const escapeAttr = (value = "") =>
